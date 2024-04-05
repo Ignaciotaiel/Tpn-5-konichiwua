@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+string japonizarNombre(string nombre);
+    int main() {
+    string nombre;
+    getline(cin, nombre);
+
+    string japonizado = japonizarNombre(nombre);
+
+    cout << "Konnichi wa, " << japonizado << "-san" << endl;
+
+    return 0;
+}
+    
+    string japonizarNombre(string nombre) { 	
+    string japonizado;
+
+    for (int i = 0; i < nombre.size(); i++) {
+        japonizado += nombre[i];
+
+        if (nombre[i] != 'a' && nombre[i] != 'e' && nombre[i] != 'i'
+            && nombre[i] != 'o' && nombre[i] != 'u' && nombre[i] != 'n'
+            && nombre[i] != 'A' && nombre[i] != 'E' && nombre[i] != 'I'
+			 && nombre[i] != 'O' && nombre[i] != 'U' && nombre[i] != 'N'
+			  ) {
+			 	
+            if ( nombre[i+1] != 'a' && nombre[i+1] != 'e' && nombre[i+1] != 'i'
+                && nombre[i+1] != 'o' && nombre[i+1] != 'u' && nombre[i+1] != 'A' && nombre[i] != ' '
+				&& nombre[i+1] != 'E' && nombre[i+1] != 'I' && nombre[i+1] != 'O' && nombre[i+1] != 'U') {
+					
+                japonizado += 'u';
+            }
+        }
+    }
+    return japonizado;
+}
